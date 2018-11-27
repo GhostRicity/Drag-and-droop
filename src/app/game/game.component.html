@@ -1,0 +1,77 @@
+<!-- <div>
+  <h2 class="mb-5"> Game Page </h2>
+  <button class="btn btn-secondary btn-lg" (click)="GetScorePage()">Get Score</button>
+</div> -->
+
+<div class="row" id="game-content">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'dalitGril'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onDalitGrilDrop($event)">
+            <div class="pt-2 pb-2">
+                <img src="../assets/Img/poor_girl.png">
+            </div>
+            <div class="card-header card-inverse card-primary">Dalit Gril</div>
+            <div class="card-block scroll-list">
+                <li *ngFor="let item of droppedDalitGrils" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'brahminGirl'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onBrahminGirlDrop($event)">
+            <div class="pt-2 pb-2">
+                <img src="../assets/Img/ritch_girl.png">
+            </div>
+            <div class="card-header card-inverse card-primary">Brahmin Girl</div>
+            <div class="card-block scroll-list">
+                <li *ngFor="let item of droppedBrahminGirls" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'brahminBoy'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onBrahminBoy($event)">
+            <div class="pt-2 pb-2">
+                <img src="../assets/Img/money_boy.png">
+            </div>
+            <div class="card-header card-inverse card-primary">Brahmin Boy</div>
+            <div class="card-block scroll-list">
+                <li *ngFor="let item of droppedBrahminBoys" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'dalitBoy'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onDalitBoy($event)">
+            <div class="pt-2 pb-2">
+                <img src="../assets/Img/poor-boy.png">
+            </div>
+            <div class="card-header card-inverse card-primary">Dalit Boy</div>
+            <div class="card-block scroll-list">
+                <li *ngFor="let item of droppedDalitBoys" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-10 mx-auto">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">
+                Statements
+            </div>
+            <div class="card-block scroll-list">
+                <div class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of statements"
+                        [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
+                        {{item.name}}
+                    </li>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

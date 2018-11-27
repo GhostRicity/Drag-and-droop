@@ -1,0 +1,32 @@
+#game-content {
+  padding: 0 20px;
+}
+
+div.card-outline-primary img {
+  max-height: 180px;
+}
+
+div.scroll-list {
+  overflow: auto;
+  max-height: 100px;
+}
+
+div.scroll-list li {
+  max-height: 50px;
+}
+
+.drag-over {
+  border: #ff525b dashed 2px;
+}
+
+.drag-hint {
+  border: #ffc100 dashed 2px;
+}
+
+.drag-target-border {
+  border: #00bfff dashed 2px;
+}
+
+.drag-target-border-green {
+  border: #3c763d dashed 2px;
+}
