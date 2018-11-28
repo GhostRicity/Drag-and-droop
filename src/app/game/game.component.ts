@@ -17,20 +17,12 @@ export class GameComponent implements OnInit {
     {name: 'Stetement 02', type: 'brahminGirl'},
     {name: 'Stetement 03', type: 'brahminBoy'},
     {name: 'Stetement 04', type: 'dalitBoy'},
-    {name: 'Statement 07', type: 'dalitGril'},
-    {name: 'Stetement 08', type: 'brahminGirl'},
-    {name: 'Stetement 09', type: 'brahminBoy'},
-    {name: 'Stetement 10', type: 'dalitBoy'},
-    {name: 'Statement 11', type: 'dalitGril'},
-    {name: 'Stetement 12', type: 'brahminGirl'},
-    {name: 'Stetement 13', type: 'brahminBoy'},
-    {name: 'Stetement 14', type: 'dalitBoy'},
   ];
 
-  droppedDalitGrils = [];
-  droppedBrahminGirls = [];
-  droppedBrahminBoys = [];
-  droppedDalitBoys = [];
+  droppedPoorGirls = [];
+  droppedRichGirls = [];
+  droppedRichBoys = [];
+  droppedPoorBoys = [];
   droppedItems = [];
   dragEnabled = true;
 
@@ -39,27 +31,27 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
-  GetScorePage(){
+  getScorePage(){
     this._router.navigate(['score']);
   }
 
-  onDalitGrilDrop(e: DropEvent) {
-    this.droppedDalitGrils.push(e.dragData);
+  onPoorGirlDrop(e: DropEvent) {
+    this.droppedPoorGirls.push(e.dragData);
     this.removeItem(e.dragData, this.statements);
   }
 
-  onBrahminGirlDrop(e: DropEvent) {
-    this.droppedBrahminGirls.push(e.dragData);
+  onRichGirlDrop(e: DropEvent) {
+    this.droppedRichGirls.push(e.dragData);
     this.removeItem(e.dragData, this.statements);
   }
 
-  onBrahminBoy(e: DropEvent) {
-    this.droppedBrahminBoys.push(e.dragData);
+  onRichBoyDrop(e: DropEvent) {
+    this.droppedRichBoys.push(e.dragData);
     this.removeItem(e.dragData, this.statements);
   }
 
-  onDalitBoy(e: DropEvent) {
-    this.droppedDalitBoys.push(e.dragData);
+  onPoorBoyDrop(e: DropEvent) {
+    this.droppedPoorBoys.push(e.dragData);
     this.removeItem(e.dragData, this.statements);
   }
 
@@ -68,6 +60,9 @@ export class GameComponent implements OnInit {
       return e.name
     }).indexOf(item.name);
     list.splice(index, 1);
+    if (list.length == 0) {
+      this.getScorePage();
+    }
   }
 
 }
