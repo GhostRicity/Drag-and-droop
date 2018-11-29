@@ -3,55 +3,65 @@
   <button class="btn btn-secondary btn-lg" (click)="getScorePage()">Get Score</button>
 </div> -->
 
+<h3 class="mb-4">Current Score: {{ score }}</h3>
+
 <div class="row" id="game-content">
     <div class="col-sm-3">
-        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['dalitGril', 'brahminGirl', 'brahminBoy', 'dalitBoy']"
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['poorGirl', 'richGirl', 'richBoy', 'poorBoy']"
             [dragHintClass]="'drag-hint'" (onDrop)="onPoorGirlDrop($event)">
             <div class="pt-2 pb-2">
                 <img src="../assets/Img/poor_girl.png">
             </div>
             <div class="card-header card-inverse card-primary">Dalit Gril</div>
             <div class="card-block scroll-list">
-                <li *ngFor="let item of droppedPoorGirls" class="list-group-item">{{item.name}}</li>
+                <ul id class="list-group">
+                    <li *ngFor="let item of droppedPoorGirls" class="list-group-item">{{item.name}}</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="col-sm-3">
-        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['dalitGril', 'brahminGirl', 'brahminBoy', 'dalitBoy']"
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['poorGirl', 'richGirl', 'richBoy', 'poorBoy']"
             [dragHintClass]="'drag-hint'" (onDrop)="onRichGirlDrop($event)">
             <div class="pt-2 pb-2">
                 <img src="../assets/Img/ritch_girl.png">
             </div>
             <div class="card-header card-inverse card-primary">Brahmin Girl</div>
             <div class="card-block scroll-list">
-                <li *ngFor="let item of droppedRichGirls" class="list-group-item">{{item.name}}</li>
+                <ul id class="list-group">
+                    <li *ngFor="let item of droppedRichGirls" class="list-group-item">{{item.name}}</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="col-sm-3">
-        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['dalitGril', 'brahminGirl', 'brahminBoy', 'dalitBoy']"
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['poorGirl', 'richGirl', 'richBoy', 'poorBoy']"
             [dragHintClass]="'drag-hint'" (onDrop)="onRichBoyDrop($event)">
             <div class="pt-2 pb-2">
                 <img src="../assets/Img/money_boy.png">
             </div>
             <div class="card-header card-inverse card-primary">Brahmin Boy</div>
             <div class="card-block scroll-list">
-                <li *ngFor="let item of droppedRichBoys" class="list-group-item">{{item.name}}</li>
+                <ul id class="list-group">
+                    <li *ngFor="let item of droppedRichBoys" class="list-group-item">{{item.name}}</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="col-sm-3">
-        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['dalitGril', 'brahminGirl', 'brahminBoy', 'dalitBoy']"
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['poorGirl', 'richGirl', 'richBoy', 'poorBoy']"
             [dragHintClass]="'drag-hint'" (onDrop)="onPoorBoyDrop($event)">
             <div class="pt-2 pb-2">
                 <img src="../assets/Img/poor-boy.png">
             </div>
             <div class="card-header card-inverse card-primary">Dalit Boy</div>
             <div class="card-block scroll-list">
-                <li *ngFor="let item of droppedPoorBoys" class="list-group-item">{{item.name}}</li>
+                <ul id class="list-group">
+                    <li *ngFor="let item of droppedPoorBoys" class="list-group-item">{{item.name}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -64,12 +74,12 @@
                 Statements
             </div>
             <div class="card-block scroll-list">
-                <div class="list-group">
+                <ul id class="list-group">
                     <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of statements"
-                        [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
+                        [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.type1" [dragEnabled]="dragEnabled">
                         {{item.name}}
                     </li>
-                </div>
+                </ul>
             </div>
         </div>
     </div>
