@@ -14,9 +14,9 @@ export class ScoreComponent implements OnInit {
   ngOnInit() {
   }
 
-  GetIntroPage(){
+  getIntroPage(){
     this._router.navigate(['']);
-  }  
+  }
 
 
 }

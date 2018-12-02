@@ -14,8 +14,8 @@ export class IntroComponent implements OnInit {
   ngOnInit() {
   }
 
-  GetGamePage(){
-    this._router.navigate(['game']);
-  }  
+  getCartoonPage(){
+    this._router.navigate(['cartoon']);
+  } 
 
 }
