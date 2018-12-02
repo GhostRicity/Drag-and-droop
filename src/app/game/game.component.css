@@ -3,16 +3,25 @@
 }
 
 div.card-outline-primary img {
-  max-height: 180px;
+  max-height: 160px;
 }
 
-div.scroll-list {
+.card-header {
+  padding: 10px 20px;
+}
+
+.list-group-item {
+  padding: 10px 20px;
+}
+
+#list-statement {
   overflow: auto;
-  max-height: 100px;
+  max-height: 92px;
 }
 
-div.scroll-list li {
-  max-height: 50px;
+#list-drop {
+  overflow: auto;
+  max-height: 70px;
 }
 
 .drag-over {

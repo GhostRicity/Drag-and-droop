@@ -9,6 +9,8 @@ import { NgDragDropModule } from 'ng-drag-drop';
 import { IntroComponent } from './intro/intro.component';
 import { GameComponent } from './game/game.component';
 import { ScoreComponent } from './score/score.component';
+import { CartoonComponent } from './cartoon/cartoon.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ScoreComponent } from './score/score.component';
     IntroComponent,
     GameComponent,
     ScoreComponent,
+    CartoonComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
