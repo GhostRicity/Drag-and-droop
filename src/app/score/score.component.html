@@ -1,7 +1,11 @@
-<h2>Score Page</h2>
+<p class="h2">Congretuate <span>{{ username }}</span>, you get <span>{{ score }}</span> score! </p>
 <div class="mt-5">
-    <p>Top 10: </p>
-    <p>Your Score: </p>
+    <h4 class="mb-4">Top 10 Scores</h4>
+    <ul *ngFor="let user of users | async" class="list-group">
+        <li class="list-group-item">
+            Username: <span class="mr-5">{{ user.data.username }}</span>Score: <span>{{ user.data.score }}</span>
+        </li>
+    </ul>
 </div>
 <p class="mt-4">
     <button class="btn btn-secondary btn-lg" (click)="getIntroPage()">Play Again</button>

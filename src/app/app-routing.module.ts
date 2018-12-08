@@ -11,8 +11,8 @@ const routes: Routes = [
   { path:'', component:IntroComponent },
   { path:'cartoon', component:CartoonComponent },
   { path:'user', component:UserComponent },
-  { path:'game',component:GameComponent },
-  { path:'score',component:ScoreComponent }
+  { path:'game/:username',component:GameComponent },
+  { path:'score/:username/:score',component:ScoreComponent }
 ];
 
 @NgModule({

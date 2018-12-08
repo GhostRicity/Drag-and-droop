@@ -16,6 +16,6 @@ export class IntroComponent implements OnInit {
 
   getCartoonPage(){
     this._router.navigate(['cartoon']);
-  } 
+  }
 
 }

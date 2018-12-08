@@ -1,0 +1,12 @@
+.h2 span {
+    color: blue;
+}
+
+ul {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li span {
+    /* font-weight: bold; */
+}

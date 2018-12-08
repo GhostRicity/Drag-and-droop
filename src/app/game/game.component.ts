@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DropEvent } from 'ng-drag-drop';
 
 @Component({
@@ -17,8 +17,8 @@ export class GameComponent implements OnInit {
     {name: 'I drop out of school between 3 – 6 grade', type1: 'poorGirl'},
     {name: 'I experience violence in school and at home', type1: 'poorGirl'},
     {name: 'I live in a mudd house', type1: 'poorGirl', type2: 'poorBoy'},
-    // {name: 'I am discriminated by people from other casts', type1: 'poorGirl', type2: 'poorBoy'},
-    // {name: 'I dont eat enough healthy food everyday', type1: 'poorGirl', type2: 'poorBoy'},
+    {name: 'I am discriminated by people from other casts', type1: 'poorGirl', type2: 'poorBoy'},
+    {name: 'I dont eat enough healthy food everyday', type1: 'poorGirl', type2: 'poorBoy'},
     // {name: 'I am not allowed to drink and smoke', type1: 'poorGirl'},
     // {name: 'I run away from home and get married early', type1: 'poorGirl'},
     // {name: 'I am often sick', type1: 'poorGirl'},
@@ -67,58 +67,71 @@ export class GameComponent implements OnInit {
   droppedItems = [];
   dragEnabled = true;
   score = 0;
+  username;
+  imgSrc = "../assets/img/ready.png";
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _route:ActivatedRoute) { }
 
   ngOnInit() {
+    this._route.params.subscribe(params => {
+      this.username = params["username"];
+    });
   }
 
   onPoorGirlDrop(e: DropEvent) {
     this.droppedPoorGirls.push(e.dragData);
     this.droppedPoorGirls.reverse();
-    this.removeItem(e.dragData, this.statements);
+    
     if ( e.dragData.type1 == "poorGirl" || e.dragData.type2 == "poorGirl") {
       this.score += 100;
+      this.imgSrc = "../assets/img/true.png";
     } else {
       this.score -= 100;
+      this.imgSrc = "../assets/img/false.png";
     }
-    console.log(this.score);
+    this.removeItem(e.dragData, this.statements);
   }
 
   onRichGirlDrop(e: DropEvent) {
     this.droppedRichGirls.push(e.dragData);
     this.droppedRichGirls.reverse();
-    this.removeItem(e.dragData, this.statements);
+    
     if ( e.dragData.type1 == "richGirl" || e.dragData.type2 == "richGirl") {
       this.score += 100;
+      this.imgSrc = "../assets/img/true.png";
     } else {
       this.score -= 100;
+      this.imgSrc = "../assets/img/false.png";
     }
-    console.log(this.score);
+    this.removeItem(e.dragData, this.statements);
   }
 
   onRichBoyDrop(e: DropEvent) {
     this.droppedRichBoys.push(e.dragData);
     this.droppedRichBoys.reverse();
-    this.removeItem(e.dragData, this.statements);
+    
     if ( e.dragData.type1 == "richBoy" || e.dragData.type2 == "richBoy") {
       this.score += 100;
+      this.imgSrc = "../assets/img/true.png";
     } else {
       this.score -= 100;
+      this.imgSrc = "../assets/img/false.png";
     }
-    console.log(this.score);
+    this.removeItem(e.dragData, this.statements);
   }
 
   onPoorBoyDrop(e: DropEvent) {
     this.droppedPoorBoys.push(e.dragData);
     this.droppedPoorBoys.reverse();
-    this.removeItem(e.dragData, this.statements);
+    
     if ( e.dragData.type1 == "poorBoy" || e.dragData.type2 == "poorBoy") {
       this.score += 100;
+      this.imgSrc = "../assets/img/true.png";
     } else {
       this.score -= 100;
+      this.imgSrc = "../assets/img/false.png";
     }
-    console.log(this.score);
+    this.removeItem(e.dragData, this.statements);
   }
 
   removeItem(item: any, list: Array<any>) {
@@ -132,7 +145,7 @@ export class GameComponent implements OnInit {
   }
 
   getScorePage(){
-    this._router.navigate(['score']);
+    this._router.navigate(['score', this.username, this.score]);
   }
 
 }

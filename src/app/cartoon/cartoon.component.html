@@ -1,9 +1,9 @@
-<h2>Cartoon 1</h2>
+<h2>Cartoon {{numCartoon}}</h2>
 <div class="mt-5">
   <p>
-    <img class="img-fluid" src="../assets/img/StatusQuoHypcrisy.png">
+    <img class="img-fluid" src="{{imgSrc}}">
   </p>
 </div>
 <p class="mt-4">
-  <button class="btn btn-secondary btn-lg" (click)="getUserPage()">Next</button>
+  <button class="btn btn-secondary btn-lg" (click)="nextCartoon()">Next</button>
 </p>
